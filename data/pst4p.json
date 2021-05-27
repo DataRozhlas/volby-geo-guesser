@@ -1,0 +1,316 @@
+{
+  "@context": ["http://www.w3.org/ns/csvw",{"@language": "cs"}],
+  "url": "pst4p.csv",
+  "dc:description": "Data z pøílohy è. 1 k tiskopisu T/4 zápisu komise v kompletní podobì (široká struktura)", 
+  "tableSchema": { 
+    "columns": [{
+      "name": "ID_OKRSKY",
+      "titles": "ID_OKRSKY",
+      "dc:description": "Odkaz na identifikaci okrsku (FK)",
+      "required": false,
+      "datatype": "number"
+    },{
+      "name": "TYP_FORM",
+      "titles": "TYP_FORM",
+      "dc:description": "Obsah dat ve vìtì (1 = T/4, 2 = pøíloha T/4, 3 = souètová vìta TS)",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "OPRAVA",
+      "titles": "OPRAVA",
+      "dc:description": "Pøíznak dodateèné opravy na pøebíracím místì v pøípadì chyby (1 = opraven, 0 = neopraven)",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "CHYBA",
+      "titles": "CHYBA",
+      "dc:description": "Pøíznak chyby (pustitelné) v datech (1 = je chyba, 0 = není chyba)",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "OKRES",
+      "titles": "OKRES",
+      "dc:description": "Kód okresu dle CNUMNUTS",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "OBEC",
+      "titles": "OBEC",
+      "dc:description": "Kód obce dle COCO",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "OKRSEK",
+      "titles": "OKRSEK",
+      "dc:description": "Èíslo okrsku v rámci obce",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "KC_1",
+      "titles": "KC_1",
+      "dc:description": "Kontrolní èíslo 1 (MODULO7)",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "KSTRANA",
+      "titles": "KSTRANA",
+      "dc:description": "Vylosované èíslo strany",
+      "required": false,
+      "datatype": "number"
+    },{
+      "name": "POC_HLASU",
+      "titles": "POC_HLASU",
+      "dc:description": "Poèet platných hlasù pro stranu",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "KC_2",
+      "titles": "KC_2",
+      "dc:description": "Kontrolní èíslo 2",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_01",
+      "titles": "HLASY_01",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 1",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_02",
+      "titles": "HLASY_02",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 2",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_03",
+      "titles": "HLASY_03",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 3",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_04",
+      "titles": "HLASY_04",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 4",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_05",
+      "titles": "HLASY_05",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 5",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_06",
+      "titles": "HLASY_06",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 6",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_07",
+      "titles": "HLASY_07",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 7",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_08",
+      "titles": "HLASY_08",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 8",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_09",
+      "titles": "HLASY_09",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 9",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_10",
+      "titles": "HLASY_10",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 10",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_11",
+      "titles": "HLASY_11",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 11",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_12",
+      "titles": "HLASY_12",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 12",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_13",
+      "titles": "HLASY_13",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 13",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_14",
+      "titles": "HLASY_14",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 14",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_15",
+      "titles": "HLASY_15",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 15",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_16",
+      "titles": "HLASY_16",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 16",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_17",
+      "titles": "HLASY_17",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 17",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_18",
+      "titles": "HLASY_18",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 18",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_19",
+      "titles": "HLASY_19",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 19",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_20",
+      "titles": "HLASY_20",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 20",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_21",
+      "titles": "HLASY_21",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 21",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_22",
+      "titles": "HLASY_22",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 22",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_23",
+      "titles": "HLASY_23",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 23",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_24",
+      "titles": "HLASY_24",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 24",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_25",
+      "titles": "HLASY_25",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 25",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_26",
+      "titles": "HLASY_26",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 26",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_27",
+      "titles": "HLASY_27",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 27",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_28",
+      "titles": "HLASY_28",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 28",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_29",
+      "titles": "HLASY_29",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 29",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_30",
+      "titles": "HLASY_30",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 30",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_31",
+      "titles": "HLASY_31",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 31",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_32",
+      "titles": "HLASY_32",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 32",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_33",
+      "titles": "HLASY_33",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 33",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_34",
+      "titles": "HLASY_34",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 34",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_35",
+      "titles": "HLASY_35",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 35",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "HLASY_36",
+      "titles": "HLASY_36",
+      "dc:description": "Poèet pøednostních hlasù pro kandidáta s poøadovým èíslem 36",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "KC_3",
+      "titles": "KC_3",
+      "dc:description": "Kontrolní èíslo 3",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "KC_4",
+      "titles": "KC_4",
+      "dc:description": "Kontrolní èíslo 4 ",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "POSL_KAND",
+      "titles": "POSL_KAND",
+      "dc:description": "Poslední èíslo kandidáta strany, který získal pøednostní hlasy",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "KC_SUM",
+      "titles": "KC_SUM",
+      "dc:description": "Sumární kontrolní èíslo pøílohy T4",
+      "required": true,
+      "datatype": "number"
+    }
+    ],
+    "primaryKey": ["ID_OKRSKY","KSTRANA"]
+  }
+}

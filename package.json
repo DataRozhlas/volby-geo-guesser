@@ -26,5 +26,8 @@
     "js-yaml": "^3.13.1",
     "marked": "^0.7.0",
     "webpack": "^4.41.0"
+  },
+  "devDependencies": {
+    "extract-zip": "^2.0.1"
   }
 }

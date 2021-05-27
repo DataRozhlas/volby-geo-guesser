@@ -1,0 +1,94 @@
+{
+  "@context": ["http://www.w3.org/ns/csvw",{"@language": "cs"}],
+  "url": "pst4.csv",
+  "dc:description": "Data z tiskopisu T/4 zápisu komise v kompletní podobì (široká struktura)", 
+  "tableSchema": { 
+    "columns": [{
+      "name": "ID_OKRSKY",
+      "titles": "ID_OKRSKY",
+      "dc:description": "Odkaz na identifikaci okrsku (FK)",
+      "required": false,
+      "datatype": "number"
+    },{
+      "name": "TYP_FORM",
+      "titles": "TYP_FORM",
+      "dc:description": "Obsah dat ve vìtì (1 = T/4, 2 = pøíloha T/4, 3 = souètová vìta TS)",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "OPRAVA",
+      "titles": "OPRAVA",
+      "dc:description": "Pøíznak dodateèné opravy na pøebíracím místì v pøípadì chyby (1 = opraven, 0 = neopraven)",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "CHYBA",
+      "titles": "CHYBA",
+      "dc:description": "Pøíznak chyby (pustitelné) v datech (1 = je chyba, 0 = není chyba)",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "OKRES",
+      "titles": "OKRES",
+      "dc:description": "Kód okresu dle CNUMNUTS",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "OBEC",
+      "titles": "OBEC",
+      "dc:description": "Kód obce dle COCO",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "OKRSEK",
+      "titles": "OKRSEK",
+      "dc:description": "Èíslo okrsku v rámci obce",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "KC_1",
+      "titles": "KC_1",
+      "dc:description": "Kontrolní èíslo 1 (MODULO7)",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "KC_2",
+      "titles": "KC_2",
+      "dc:description": "Kontrolní èíslo 2",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "ZAKRSTRANA",
+      "titles": "ZAKRSTRANA",
+      "dc:description": "Pøíznak zakroužkované strany (poøadí znaku odpovídá vylosovanému èíslu strany) (1 = zakroužkována, 0 = nezakroužkována)",
+      "required": true,
+      "datatype": "string"
+    },{
+      "name": "VOL_SEZNAM",
+      "titles": "VOL_SEZNAM",
+      "dc:description": "Poèet osob, zapsaných do výpisu ze stálého a zvláštního seznamu",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "VYD_OBALKY",
+      "titles": "VYD_OBALKY",
+      "dc:description": "Poèet volièù, kterým byly vydány úøední obálky",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "ODEVZ_OBAL",
+      "titles": "ODEVZ_OBAL",
+      "dc:description": "Poèet odevzdaných úøedních obálek",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "PL_HL_CELK",
+      "titles": "PL_HL_CELK",
+      "dc:description": "Poèet platných hlasù ve volebním okrsku celkem",
+      "required": true,
+      "datatype": "number"
+    }
+    ],
+    "primaryKey": "ID_OKRSKY"
+  }
+}

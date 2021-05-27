@@ -86,26 +86,14 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./js/byeie.js":
-/*!*********************!*\
-  !*** ./js/byeie.js ***!
-  \*********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("if (navigator.appName === \"Microsoft Internet Explorer\" || !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/))) {\n  var warn = document.createElement(\"div\");\n  warn.innerHTML = \"Používáte zastaralý Internet Explorer, takže vám části tohoto webu nemusí fungovat. Navíc to <a target=\\\"_blank\\\" style=\\\"color:white;\\\" rel=\\\"noopener noreferrer\\\" href=\\\"https://www.zive.cz/clanky/microsoft-internet-explorer-neni-prohlizec-prestante-ho-tak-pouzivat/sc-3-a-197149/default.aspx\\\">není bezpečné</a>, zvažte přechod na <a target=\\\"_blank\\\" style=\\\"color:white;\\\" rel=\\\"noopener noreferrer\\\" href=\\\"https://www.mozilla.org/cs/firefox/new/\\\">jiný prohlížeč</a>.\";\n  warn.style.cssText = \"text-align:center;position:absolute;width:100%;height:auto;opacity:1;z-index:100;background-color:#d52834;top:37px;padding-top:4px;padding-bottom:3px;color:white;\";\n  document.body.appendChild(warn);\n}\n\n//# sourceURL=webpack:///./js/byeie.js?");
-
-/***/ }),
-
 /***/ "./js/script.js":
 /*!**********************!*\
   !*** ./js/script.js ***!
   \**********************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _byeie__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./byeie */ \"./js/byeie.js\");\n/* harmony import */ var _byeie__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_byeie__WEBPACK_IMPORTED_MODULE_0__);\n // loučíme se s IE\n\n/*\r\n// snadné načtení souboru pro každého!\r\nfetch(\"https://blabla.cz/blabla.json\")\r\n  .then(response => response.json()) // nebo .text(), když to není json\r\n  .then(data => {\r\n    // tady jde provést s daty cokoliv\r\n  });\r\n*/\n\n//# sourceURL=webpack:///./js/script.js?");
+eval("/*\n// snadné načtení souboru pro každého!\nfetch(\"https://blabla.cz/blabla.json\")\n  .then(response => response.json()) // nebo .text(), když to není json\n  .then(data => {\n    // tady jde provést s daty cokoliv\n  });\n*/\nfunction foo(msg) {\n  var fn = function inner() {\n    return msg.toUpperCase();\n  };\n\n  return fn;\n}\n\nvar helloFn = foo(\"jjj\");\nconsole.log(helloFn());\n\n//# sourceURL=webpack:///./js/script.js?");
 
 /***/ })
 

@@ -1,0 +1,130 @@
+{
+  "@context": ["http://www.w3.org/ns/csvw",{"@language": "cs"}],
+  "url": "psrk.csv",
+  "dc:description": "Registr kandidátù", 
+  "tableSchema": { 
+    "columns": [{
+      "name": "VOLKRAJ",
+      "titles": "VOLKRAJ",
+      "dc:description": "Èíslo volebního kraje",
+      "required": false,
+      "datatype": "number"
+    },{
+      "name": "KSTRANA",
+      "titles": "KSTRANA",
+      "dc:description": "Vylosované èíslo strany (vazba na RKL)",
+      "required": false,
+      "datatype": "number"
+    },{
+      "name": "PORCISLO",
+      "titles": "PORCISLO",
+      "dc:description": "Poøadí na KL (hlasovacím lístku)",
+      "required": false,
+      "datatype": "number"
+    },{
+      "name": "JMENO",
+      "titles": "JMENO",
+      "dc:description": "Jméno, pøíp. i další jména",
+      "required": true,
+      "datatype": "string"
+    },{
+      "name": "PRIJMENI",
+      "titles": "PRIJMENI",
+      "dc:description": "Pøíjmení",
+      "required": true,
+      "datatype": "string"
+    },{
+      "name": "TITULPRED",
+      "titles": "TITULPRED",
+      "dc:description": "Tituly pøed jménem",
+      "required": true,
+      "datatype": "string"
+    },{
+      "name": "TITULZA",
+      "titles": "TITULZA",
+      "dc:description": "Tituly za pøíjmením",
+      "required": true,
+      "datatype": "string"
+    },{
+      "name": "VEK",
+      "titles": "VEK",
+      "dc:description": "Vìk",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "POVOLANI",
+      "titles": "POVOLANI",
+      "dc:description": "Povolání",
+      "required": true,
+      "datatype": "string"
+    },{
+      "name": "BYDLISTEN",
+      "titles": "BYDLISTEN",
+      "dc:description": "Název obce - bydlištì",
+      "required": true,
+      "datatype": "string"
+    },{
+      "name": "BYDLISTEK",
+      "titles": "BYDLISTEK",
+      "dc:description": "Kód obce - bydlištì",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "PSTRANA",
+      "titles": "PSTRANA",
+      "dc:description": "Kód politické pøíslušnosti",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "NSTRANA",
+      "titles": "NSTRANA",
+      "dc:description": "Kód navrhující strany",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "PLATNOST",
+      "titles": "PLATNOST",
+      "dc:description": "Platnost (A = platný, N = neplatný)",
+      "required": true,
+      "datatype": "string"
+    },{
+      "name": "POCHLASU",
+      "titles": "POCHLASU",
+      "dc:description": "Poèet pøednostních hlasù",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "POCPROC",
+      "titles": "POCPROC",
+      "dc:description": "Procento pøednostních hlasù, je-li vìtší nebo rovno 5",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "POCPROCVSE",
+      "titles": "POCPROCVSE",
+      "dc:description": "Procento pøednostních hlasù",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "MANDAT",
+      "titles": "MANDAT",
+      "dc:description": "A = zvolen, N = nezvolen",
+      "required": true,
+      "datatype": "string"
+    },{
+      "name": "PORADIMAND",
+      "titles": "PORADIMAND",
+      "dc:description": "Poøadí pøidìlení mandátu (1-36, 0=strana nezískala žádný mandát)",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "PORADINAHR",
+      "titles": "PORADINAHR",
+      "dc:description": "Poøadí náhradníka (1-35, 0=strana nezískala žádný mandát)",
+      "required": true,
+      "datatype": "number"
+    }
+    ],
+    "primaryKey": ["VOLKRAJ","KSTRANA","PORCISLO"]
+  }
+}

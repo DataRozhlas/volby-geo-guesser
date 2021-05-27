@@ -1,0 +1,34 @@
+{
+  "@context": ["http://www.w3.org/ns/csvw",{"@language": "cs"}],
+  "url": "psvolkr.csv",
+  "dc:description": "Èíselník volebních krajù", 
+  "tableSchema": { 
+    "columns": [{
+      "name": "VOLKRAJ",
+      "titles": "VOLKRAJ",
+      "dc:description": "Èíslo volebního kraje (1-14)",
+      "required": false,
+      "datatype": "number"
+    },{
+      "name": "NAZVOLKRAJ",
+      "titles": "NAZVOLKRAJ",
+      "dc:description": "Název volebního kraje",
+      "required": true,
+      "datatype": "string"
+    },{
+      "name": "KRAJ",
+      "titles": "KRAJ",
+      "dc:description": "Kód kraje dle CNUMNUTS",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "MAXKAND",
+      "titles": "MAXKAND",
+      "dc:description": "Maximální poèet kandidátù na kandidátní listinì",
+      "required": true,
+      "datatype": "number"
+    }
+    ],
+    "primaryKey": "VOLKRAJ"
+  }
+}
