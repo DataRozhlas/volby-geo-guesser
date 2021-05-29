@@ -1,5 +1,15 @@
-.app {
+#app {
   background-color: lightpink;
   display: grid;
-  height: 80vh;
+  height: 95vh;
+  grid-template-rows: 1fr auto;
+}
+
+#panorama {
+  background-color: lightsalmon;
+}
+
+#control-panel {
+  padding: 2rem;
+  background-color: lightseagreen;
 }

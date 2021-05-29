@@ -2,7 +2,7 @@ import { h } from "preact";
 
 function Panorama({ CurrPlace }) {
   return (
-    <div>
+    <div id="panorama">
       {CurrPlace.id}: {CurrPlace.obc}
     </div>
   );
