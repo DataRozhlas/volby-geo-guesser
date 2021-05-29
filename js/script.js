@@ -1,19 +1,10 @@
-﻿/*
-// snadné načtení souboru pro každého!
-fetch("https://blabla.cz/blabla.json")
-  .then(response => response.json()) // nebo .text(), když to není json
-  .then(data => {
-    // tady jde provést s daty cokoliv
-  });
-*/
+﻿import "preact/debug";
+import { h, render, Component } from "preact";
 
-function foo(msg) {
-  let fn = function inner() {
-    return msg.toUpperCase();
-  };
-  return fn;
+class App extends Component {
+  render() {
+    return <h1>Hello, world!</h1>;
+  }
 }
 
-let helloFn = foo("jjj");
-
-console.log(helloFn());
+render(<App />, document.getElementById("app"));

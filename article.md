@@ -9,5 +9,5 @@ options: [noheader, nopic] #wide, noheader (, nopic)
 ---
 
 <wide>
-<div class="app"></div>
+<div id="app"></div>
 </wide>
