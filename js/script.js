@@ -5,11 +5,10 @@ import Panorama from "./Panorama.jsx";
 import data from "./../data/data.json";
 
 function App() {
-  // const [CurrPlace, setCurrPlace] = useState(
-  //   data[Math.floor(Math.random() * data.length)]
-  // );
-  console.log(data);
-  return <Panorama />;
+  const [CurrPlace, setCurrPlace] = useState(
+    data[Math.floor(Math.random() * data.length)]
+  );
+  return <Panorama CurrPlace={CurrPlace} />;
 }
 
 render(<App />, document.getElementById("app"));
