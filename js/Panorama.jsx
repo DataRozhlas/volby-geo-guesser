@@ -2,16 +2,21 @@ import { h } from "preact";
 import { useEffect, useState } from "preact/compat";
 
 function Panorama({ currPlace, setCurrPlace, mapLoader, data }) {
+  const [panoramaScene, setPanoramaScene] = useState(null);
+
   useEffect(() => {
     if (mapLoader.loadedMapApi) {
-      var options = {
-        //nav: false, // skryjeme navigaci
-        pitchRange: [0, 0], // zakazeme vertikalni rozhled
-      };
-      var panoramaScene = new mapLoader.SMap.Pano.Scene(
-        document.querySelector("#panorama"),
-        options
+      setPanoramaScene(
+        new mapLoader.SMap.Pano.Scene(document.querySelector("#panorama"), {
+          //nav: false, // skryjeme navigaci
+          pitchRange: [0, 0], // zakazeme vertikalni rozhled
+        })
       );
+    }
+  }, [mapLoader]);
+
+  useEffect(() => {
+    if (panoramaScene) {
       // kolem teto pozice chceme nejblizsi panorama
       var position = mapLoader.SMap.Coords.fromWGS84(currPlace.X, currPlace.Y);
 
@@ -25,7 +30,7 @@ function Panorama({ currPlace, setCurrPlace, mapLoader, data }) {
         }
       );
     }
-  }, [mapLoader, currPlace]);
+  }, [currPlace, panoramaScene]);
   return <div id="panorama"></div>;
 }
 
