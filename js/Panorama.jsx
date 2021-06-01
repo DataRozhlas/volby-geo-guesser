@@ -30,11 +30,13 @@ function Panorama({ currPlace, setCurrPlace, mapLoader, data }) {
           const url =
             "https://m5u79pkxma.execute-api.eu-central-1.amazonaws.com/deploy/okrsek";
           http.open("POST", url);
-          http.send({
-            id: currPlace.id,
-            correct: null,
-            sense: null,
-          }); //console.log("nenašli");
+          http.send(
+            JSON.stringify({
+              id: currPlace.id,
+              correct: null,
+              sense: null,
+            })
+          ); //console.log("nenašli");
           setCurrPlace(data[Math.floor(Math.random() * data.length)]);
         }
       );

@@ -28,11 +28,16 @@ function ControlPanel({
     const url =
       "https://m5u79pkxma.execute-api.eu-central-1.amazonaws.com/deploy/okrsek";
     http.open("POST", url);
-    http.send({
-      id: currPlace.id,
-      correct: guessedPlaces[guessedPlaces.length - 1][1],
-      sense: event.target.id === "nahlasit" ? false : true,
-    });
+    http.send(
+      JSON.stringify({
+        id: currPlace.id,
+        correct: guessedPlaces[guessedPlaces.length - 1][1],
+        sense: event.target.id === "nahlasit" ? false : true,
+      })
+    );
+    http.onreadystatechange = (e) => {
+      console.log(http.responseText);
+    };
     setCurrPlace(data[Math.floor(Math.random() * data.length)]);
   };
   return (
@@ -64,7 +69,9 @@ function ControlPanel({
             </span>
             <div style="display:flex; justify-content:center; margin-top:0.4rem">
               <button onClick={handleDalsiClick}>Další 👍</button>
-              <button id="nahlasit">Nahlásit 👎 (+ další)</button>
+              <button id="nahlasit" onClick={handleDalsiClick}>
+                Nahlásit 👎 (+ další)
+              </button>
             </div>{" "}
           </div>
         )}
