@@ -68,6 +68,12 @@ export <- export %>%
 # vyber sloupce a udělej json
 
 export %>%
-  select(str=KSTRANA, hl=POC_HLASU, hlclk=PL_HL_CELK, obc=NAZEVOBCE, X, Y, okr=OKRSEK.x) %>%
+  ungroup() %>%
+  mutate(id=row_number()) %>%
+  select(id, str=KSTRANA, hl=POC_HLASU, hlclk=PL_HL_CELK, obc=NAZEVOBCE, X, Y, okr=OKRSEK.x) %>%
   toJSON() %>%
   write_file("./../data/data.json")
+
+# exportuj seznam stran
+
+strany_vybrane %>% select(id=KSTRANA, str=ZKRATKAK8) %>% toJSON()

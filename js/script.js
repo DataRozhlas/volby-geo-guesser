@@ -8,15 +8,27 @@ import useScript from "./useScript";
 import useMapLoader from "./useMapLoader";
 
 function App() {
-  const [CurrPlace, setCurrPlace] = useState(
+  const [currPlace, setCurrPlace] = useState(
     data[Math.floor(Math.random() * data.length)]
   );
+  const [guessedPlaces, setGuessedPlaces] = useState([]);
   const [loaded, error] = useScript("https://api.mapy.cz/loader.js");
   const [mapLoader] = useMapLoader(loaded);
   return (
     <>
-      <Panorama CurrPlace={CurrPlace} mapLoader={mapLoader} />
-      <ControlPanel CurrPlace={CurrPlace} />
+      <Panorama
+        currPlace={currPlace}
+        setCurrPlace={setCurrPlace}
+        mapLoader={mapLoader}
+        data={data}
+      />
+      <ControlPanel
+        currPlace={currPlace}
+        setCurrPlace={setCurrPlace}
+        guessedPlaces={guessedPlaces}
+        setGuessedPlaces={setGuessedPlaces}
+        data={data}
+      />
     </>
   );
 }

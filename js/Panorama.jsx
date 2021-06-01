@@ -1,7 +1,7 @@
 import { h } from "preact";
-import { useEffect } from "preact/compat";
+import { useEffect, useState } from "preact/compat";
 
-function Panorama({ CurrPlace, mapLoader }) {
+function Panorama({ currPlace, setCurrPlace, mapLoader, data }) {
   useEffect(() => {
     if (mapLoader.loadedMapApi) {
       var options = {
@@ -13,19 +13,19 @@ function Panorama({ CurrPlace, mapLoader }) {
         options
       );
       // kolem teto pozice chceme nejblizsi panorama
-      var position = mapLoader.SMap.Coords.fromWGS84(CurrPlace.X, CurrPlace.Y);
+      var position = mapLoader.SMap.Coords.fromWGS84(currPlace.X, currPlace.Y);
 
-      // hledame s toleranci 50m
-      mapLoader.SMap.Pano.getBest(position, 350).then(
+      // hledame s toleranci 150m
+      mapLoader.SMap.Pano.getBest(position, 150).then(
         function (place) {
           panoramaScene.show(place);
-        },
+        }, // když se nevrátí panorama
         function () {
-          alert("Panorama se nepodařilo zobrazit!");
+          console.log("nenašli");
         }
       );
     }
-  }, [mapLoader]);
+  }, [mapLoader, currPlace]);
   return <div id="panorama"></div>;
 }
 

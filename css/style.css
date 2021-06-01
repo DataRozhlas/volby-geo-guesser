@@ -9,5 +9,6 @@
 
 #control-panel {
   padding: 2rem;
-  background-color: lightseagreen;
+  display: flex;
+  justify-content: center;
 }
