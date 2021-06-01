@@ -1,5 +1,4 @@
-﻿import "preact/debug";
-import { h, render, Component, Fragment } from "preact";
+﻿import { h, render, Component, Fragment } from "preact";
 import { useState } from "preact/compat";
 import Panorama from "./Panorama.jsx";
 import ControlPanel from "./ControlPanel.jsx";

@@ -26,7 +26,16 @@ function Panorama({ currPlace, setCurrPlace, mapLoader, data }) {
           panoramaScene.show(place);
         }, // když se nevrátí panorama
         function () {
-          console.log("nenašli");
+          const http = new XMLHttpRequest();
+          const url =
+            "https://m5u79pkxma.execute-api.eu-central-1.amazonaws.com/deploy/okrsek";
+          http.open("POST", url);
+          http.send({
+            id: currPlace.id,
+            correct: null,
+            sense: null,
+          }); //console.log("nenašli");
+          setCurrPlace(data[Math.floor(Math.random() * data.length)]);
         }
       );
     }
