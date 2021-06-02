@@ -1,4 +1,5 @@
 import { h, Fragment } from "preact";
+import okresy from "./okresy";
 
 const strany = [
   { id: 1, str: "ODS" },
@@ -11,6 +12,11 @@ const strany = [
   { id: 24, str: "KDU-ČSL" },
   { id: 29, str: "SPD" },
 ];
+
+const rekniOkres = (numnuts, okresy) => {
+  const okres = okresy.filter((o) => o.id === numnuts);
+  return okres[0].n;
+};
 
 function ControlPanel({
   currPlace,
@@ -62,8 +68,9 @@ function ControlPanel({
                 : "Špatně!"}
             </strong>
             <span>
-              &nbsp;V obci {currPlace.obc} ve volebním okrsku číslo{" "}
-              {currPlace.okr} zvítězila strana{" "}
+              &nbsp;V obci {currPlace.obc} (okres{" "}
+              {rekniOkres(currPlace.okres, okresy)}) zvítězila ve volebním
+              okrsku číslo {currPlace.okr} strana{" "}
               {strany.filter((s) => s.id === currPlace.str)[0].str}
               .&nbsp;Získala zde {currPlace.hl} hlasů z {currPlace.hlclk}.
             </span>

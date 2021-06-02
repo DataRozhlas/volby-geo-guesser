@@ -23,7 +23,7 @@ obce <- read_csv2("./../data/pscoco.csv", locale = locale(encoding = "cp1250"))
 
 vysledky <- vysledky %>%
   left_join(okrsky, by=c("ID_OKRSKY")) %>%
-  select(ODEVZ_OBAL, ID_OKRSKY, OKRES.x, OBEC.x, OKRSEK.x, KSTRANA, POC_HLASU, PL_HL_CELK )
+  select(ODEVZ_OBAL, ID_OKRSKY, OKRES.x, OBEC.x, OKRSEK.x, KSTRANA, POC_HLASU, PL_HL_CELK, OKRES )
 
 strany <- read_csv2("./../data/psrkl.csv", locale = locale(encoding = "cp1250"))
 strany_vybrane <- strany[strany$KSTRANA %in% c(21,1,15,29,7,8,4,24,20,7), ]
