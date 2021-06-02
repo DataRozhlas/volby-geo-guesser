@@ -29,6 +29,7 @@ function ControlPanel({
     const spravne = parseInt(event.target.value) === currPlace.str;
     setGuessedPlaces([...guessedPlaces, [currPlace.id, spravne]]);
   };
+
   const handleDalsiClick = (event) => {
     const http = new XMLHttpRequest();
     const url =
@@ -42,22 +43,38 @@ function ControlPanel({
       })
     );
     http.onreadystatechange = (e) => {
-      console.log(http.responseText);
+      //  console.log(http.responseText);
     };
     setCurrPlace(data[Math.floor(Math.random() * data.length)]);
   };
+
+  const vylosujStranu = (pocetStran) => {
+    return Math.floor(Math.random() * pocetStran);
+  };
+
+  let vybraneStrany = strany.filter((s) => s.id === currPlace.str);
+
+  while (vybraneStrany.length < 3) {
+    let vylosovana = strany[vylosujStranu(strany.length)];
+    if (!vybraneStrany.includes(vylosovana)) {
+      vybraneStrany.push(vylosovana);
+    }
+  }
+
   return (
     <div id="control-panel">
       {/* pokud je to první pokus, nebo pokud ještě neproběhl tip, ukaž možnosti */}
       {(guessedPlaces.length === 0 ||
         guessedPlaces[guessedPlaces.length - 1][0] != currPlace.id) &&
-        strany.map((s) => {
-          return (
-            <button key={s.id} value={s.id} onClick={handleButtonClick}>
-              {s.str}
-            </button>
-          );
-        })}
+        vybraneStrany
+          .sort(() => Math.random() - 0.5)
+          .map((s) => {
+            return (
+              <button key={s.id} value={s.id} onClick={handleButtonClick}>
+                {s.str}
+              </button>
+            );
+          })}
       {/* jinak ukaž výsledek tipu a tlačítko Další */}
       {guessedPlaces.length > 0 &&
         guessedPlaces[guessedPlaces.length - 1][0] === currPlace.id && (
