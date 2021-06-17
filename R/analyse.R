@@ -19,11 +19,16 @@ getData("https://volby.cz/opendata/ps2017nss/PS2017ciselniky20170905_csv.zip")
 okrsky <- read_csv2("./../data/pst4.csv")
 vysledky <- read_csv2("./../data/pst4p.csv")
 obce <- read_csv2("./../data/pscoco.csv", locale = locale(encoding = "cp1250"))
+okresy <- read_csv2("./../data/cnumnuts.csv", locale = locale(encoding = "cp1250"))
+
+okresy %>%
+  select(id=NUMNUTS, n=NAZEVNUTS) %>%
+  toJSON()
 
 
 vysledky <- vysledky %>%
   left_join(okrsky, by=c("ID_OKRSKY")) %>%
-  select(ODEVZ_OBAL, ID_OKRSKY, OKRES.x, OBEC.x, OKRSEK.x, KSTRANA, POC_HLASU, PL_HL_CELK, OKRES )
+  select(ODEVZ_OBAL, ID_OKRSKY, OKRES.x, OBEC.x, OKRSEK.x, KSTRANA, POC_HLASU, PL_HL_CELK )
 
 strany <- read_csv2("./../data/psrkl.csv", locale = locale(encoding = "cp1250"))
 strany_vybrane <- strany[strany$KSTRANA %in% c(21,1,15,29,7,8,4,24,20,7), ]
@@ -70,7 +75,7 @@ export <- export %>%
 export %>%
   ungroup() %>%
   mutate(id=row_number()) %>%
-  select(id, str=KSTRANA, hl=POC_HLASU, hlclk=PL_HL_CELK, obc=NAZEVOBCE, X, Y, okr=OKRSEK.x) %>%
+  select(id, str=KSTRANA, hl=POC_HLASU, hlclk=PL_HL_CELK, obc=NAZEVOBCE, X, Y, okr=OKRSEK.x, okres=OKRES.x) %>%
   toJSON() %>%
   write_file("./../data/data.json")
 
