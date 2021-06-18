@@ -17,6 +17,8 @@ function App() {
   const [mapLoader] = useMapLoader(loaded);
   return (
     <>
+      <ScoreBoard guessedPlaces={guessedPlaces} />
+
       <Panorama
         currPlace={currPlace}
         setCurrPlace={setCurrPlace}
@@ -30,7 +32,6 @@ function App() {
         setGuessedPlaces={setGuessedPlaces}
         data={data}
       />
-      <ScoreBoard guessedPlaces={guessedPlaces} />
     </>
   );
 }

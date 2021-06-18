@@ -5,9 +5,13 @@ function ScoreBoard({ guessedPlaces }) {
     return curr[1] ? acc + 1 : acc;
   }, 0);
   return (
-    <div>
-      Správně {pocetSpravne} z {guessedPlaces.length} odpovědí
-    </div>
+    guessedPlaces.length > 0 && (
+      <div id="score-board">
+        Úspěšnost{" "}
+        {Math.round((pocetSpravne / guessedPlaces.length) * 100 * 10) / 10} % |{" "}
+        {pocetSpravne} z {guessedPlaces.length} správně
+      </div>
+    )
   );
 }
 
