@@ -23,6 +23,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
     "clean-css": "^4.2.1",
+    "glob-parent": "^6.0.0",
     "js-yaml": "^3.13.1",
     "marked": "^0.7.0",
     "preact": "^10.5.13",

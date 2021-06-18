@@ -1,7 +1,7 @@
 #app {
   display: grid;
   height: 90vh;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: 1fr auto auto;
 }
 
 #control-panel {
@@ -9,4 +9,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+#score-board {
 }

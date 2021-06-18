@@ -1,5 +1,5 @@
 title: "Zeměpisný kvíz: Dokážete podle fotografií uhodnout, kdo na daném místě vyhrál volby?"
-perex: "Pro každou stranu, která postoupila do sněmovny, jsme vybrali volební okrsky, kde v roce 2017 zvítězila s nejvyšším podílem hlasů. Mají něco společného místa, kde dominuje ANO, ODS či Piráti? Jak se liší habitat voličů SPD, KSČM či KDU-ČSL? Jak vypadají lokality s převahou voličů ČSSD, STAN a TOP 09? Vyzkoušejte si, zda je poznáte a porovnejte svůj výsledek s ostatními."
+perex: "Pro každou stranu, která postoupila do sněmovny, jsme vybrali volební okrsky, kde v roce 2017 zvítězila s nejvyšším podílem hlasů. Mají něco společného místa, kde dominuje ANO, ODS či Piráti? A jak se liší habitat voličů SPD, KSČM či KDU-ČSL? Čím se vyznačuje prostředí s převahou voličů ČSSD, STAN nebo TOP 09? Vyzkoušejte si, zda je poznáte a porovnejte svůj výsledek s ostatními."
 coverimg: https://interaktivni.rozhlas.cz/brexit/media/cover.jpg
 coverimg_note: "Foto <a href='https://ctk.cz'>ČTK</a>"
 styles: []
