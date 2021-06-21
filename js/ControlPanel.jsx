@@ -66,6 +66,7 @@ function ControlPanel({
       {/* pokud je to první pokus, nebo pokud ještě neproběhl tip, ukaž možnosti */}
       {(guessedPlaces.length === 0 ||
         guessedPlaces[guessedPlaces.length - 1][0] != currPlace.id) &&
+        "Kdo zde vyhrál?" &&
         vybraneStrany
           .sort(() => Math.random() - 0.5)
           .map((s) => {

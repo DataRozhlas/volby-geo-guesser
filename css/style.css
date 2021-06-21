@@ -1,7 +1,7 @@
 #app {
   display: grid;
   height: 90vh;
-  grid-template-rows: 1fr auto auto;
+  grid-template-rows: 1fr auto;
 }
 
 #control-panel {
@@ -19,6 +19,6 @@
   height: auto;
   background: rgba(0, 0, 0, 0.5);
   color: white;
-  z-index: 10;
+  z-index: 2;
   padding: 0.12rem;
 }
