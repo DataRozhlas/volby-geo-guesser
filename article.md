@@ -35,34 +35,7 @@ Také podle politologa Jakuba Lyska z Univerzity Palackého v Olomouci je hra p�
 
 Obce s vysokým podílem katolíků volí jinak než zbytek republiky, a to nejen lidovce. Více hlasů než jinde v republice tu získávají i další již tradiční strany jako ODS a ČSSD. Nejde přitom jen o jih Moravy: „Katolické obce máme i v pásu okolo Ostravy, od Hlučínska přes Nový Jičín až po Jablunkov. Na Hané to jsou zase oblasti Konicka, které volebně vybočují. V Čechách pak některé východočeské okresy, Jižní Čechy a jih Středočeského kraje.“
 
-<a href="/volby/jak-volili-vasi-sousedi-prohlednete-si-nejpodrobnejsi-mapu-volebnich-vysledku_1710220940_pek" class="b-inline b-inline--right">
-  <div class="b-inline__wrap">
-            <div class="b-inline__img">
-          <div class="img img--16x9 img--w238 is-loaded">
-              <span class="img__holder is-loading is-loaded is-visible" data-srcset="[&quot;https://www.irozhlas.cz/sites/default/files/styles/zpravy_rubrikovy_nahled/public/uploader/okrsky_171021-225004_pek.png?itok=gLk7oLgv 238x134&quot;]">
-
-<noscript> <img src="https://www.irozhlas.cz/sites/default/files/styles/zpravy_rubrikovy_nahled/public/uploader/okrsky_171021-225004_pek.png?itok=gLk7oLgv" alt="" /> </noscript>
-<img src="https://www.irozhlas.cz/sites/default/files/styles/zpravy_rubrikovy_nahled/public/uploader/okrsky_171021-225004_pek.png?itok=gLk7oLgv"></span>
-
-</div>
-</div>
-<div class="b-inline__content">
-<p class="text-xs--m text-serif">
-Jakou barvu má váš okrsek? Prohlédněte si nejpodrobnější volební mapu </p>
-</div>
-<p class="b-inline__more">
-<span class="link-more">
-Číst článek
-<span class="icon-svg icon-svg--arrow-dots ">
-<svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<use xlink:href="/sites/all/themes/custom/irozhlas/img/bg/icons-svg.svg#icon-arrow-dots" x="0" y="0" width="100%" height="100%"></use></svg>
-
-</span> </span>
-
-</p>
-
-  </div>
-</a>
+<!--[[ZPRAVY_ARTICLE:5995242:1:1]]-->
 
 Druhým specifikem jsou podle Jakuba Lyska bývalé Sudety. Ty už mohou leckde mít opravené fasády, které ale nemusí vypovídat o tom, co se odehrává za nimi. „V některých obcích se ekonomicky nežije zase tak špatně, ale je zde nízký kulturní a sociální kapitál. A to z fotografií ulic nepoznáme.“
 

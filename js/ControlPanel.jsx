@@ -1,5 +1,5 @@
 import { h, Fragment } from "preact";
-import okresy from "./okresy";
+import okresy from "./okresy.json";
 
 const strany = [
   { id: 1, str: "ODS" },
