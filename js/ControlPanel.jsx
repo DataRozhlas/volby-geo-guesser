@@ -34,8 +34,8 @@ function ControlPanel({
   data,
 }) {
   const [vyhodnoceni, setVyhodnoceni] = useState(false);
-  const [mene, setMene] = useState(0);
-  const [vice, setVice] = useState(0);
+  const [mene, setMene] = useState(null);
+  const [vice, setVice] = useState(null);
 
   const handleButtonClick = (event) => {
     const spravne = parseInt(event.target.value) === currPlace.str;
@@ -58,7 +58,16 @@ function ControlPanel({
   };
 
   const handleDalsiClick = (event) => {
-    if (guessedPlaces.length === 10) {
+    // hrát znovu
+    if (vyhodnoceni) {
+      setCurrPlace(data[Math.floor(Math.random() * data.length)]);
+      setGuessedPlaces([]);
+      setGuessedResults([]);
+      setMene(null);
+      setVice(null);
+      setVyhodnoceni(false);
+    } else if (guessedPlaces.length === 10) {
+      // závěrečné vyhodnocení
       setVyhodnoceni(true);
       const pocetSpravne = guessedResults.reduce((acc, curr) => {
         return curr ? acc + 1 : acc;
@@ -91,9 +100,6 @@ function ControlPanel({
             })
           );
         });
-
-      setMene();
-      setVice();
     } else {
       //aby se nemohla v jedné hře opakovat dvě stejná místa
       let vylosovaneMisto;
@@ -158,13 +164,16 @@ function ControlPanel({
           </div>
         )}
       {vyhodnoceni && (
-        <>
+        <div>
           <div>
             Máte výsledek lepší než {mene} % lidí, kteří hru dokončili před vámi
             a horší než jakého dosáhlo {vice} % hráčů. Ostatní dopadli stejně
             jako vy. <strong>Gratulujeme!</strong>
           </div>
-        </>
+          <div style="display:flex; justify-content:center; margin-top:0.4rem; font-size:1.2rem">
+            <button onClick={handleDalsiClick}>Hrát znovu</button>
+          </div>
+        </div>
       )}
     </div>
   );
