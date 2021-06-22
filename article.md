@@ -8,11 +8,11 @@ options: [noheader, nopic] #wide, noheader (, nopic)
 
 ---
 
-**Kdo zde vyhrál?** Tlačítkem pod obrázkem vyberte stranu, která podle vás na tomto místě získala v roce 2017 nejvíc hlasů. Rozhlížet a pohybovat se můžete pomocí myši nebo šipek, na dotykových zařízeních tažením prstu.
+<wide><p style="text-align:center;"><strong>Kdo zde vyhrál?</strong> Tlačítkem pod obrázkem vyberte stranu, která podle vás na tomto místě získala v roce 2017 nejvíc hlasů. Rozhlížet a pohybovat se můžete pomocí myši nebo šipek, na dotykových zařízeních tažením prstu.</p>
+</wide>
 <wide>
 
 <div id="app"></div>
-
 <p style="font-size:smaller;text-align:right;">Zdroje dat: <a href="https://volby.cz/opendata/opendata.htm">ČSÚ - Otevřená data pro volební výsledky</a>, <a href="https://vdp.cuzk.cz/">ČÚZK</a> a <a href="https://api.mapy.cz/">Mapy.cz</a></p>
 </wide>
 

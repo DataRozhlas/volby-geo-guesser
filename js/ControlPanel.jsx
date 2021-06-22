@@ -18,6 +18,10 @@ const rekniOkres = (numnuts, okresy) => {
   return okres[0].n;
 };
 
+const srovnejVysledek = async (guessedResults, lepsi) => {
+  return "X";
+};
+
 function ControlPanel({
   currPlace,
   setCurrPlace,
@@ -86,6 +90,7 @@ function ControlPanel({
           })}
       {/* jinak ukaž výsledek tipu a tlačítko Další */}
       {guessedPlaces.length > 0 &&
+        guessedPlaces.length < 10 &&
         guessedPlaces[guessedPlaces.length - 1] === currPlace.id && (
           <div>
             <strong>
@@ -105,6 +110,17 @@ function ControlPanel({
             </div>
           </div>
         )}
+      {/* Když je hra u konce, ukaž vyhodnocení */}
+      {guessedPlaces === 10 && (
+        <>
+          <div>
+            Váš výsledek je lepší než {srovnejVysledek(guessedResults, true)} %
+            lidí, kteří hru dokončili před vámi a horší než jakého dosáhlo{" "}
+            {srovnejVysledek(guessedResults, false)} % z nich. Zbývající hráči
+            dopadli stejně jako vy. Gratulujeme!
+          </div>
+        </>
+      )}
     </div>
   );
 }
