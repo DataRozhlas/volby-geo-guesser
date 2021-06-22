@@ -78,7 +78,18 @@ function ControlPanel({
           );
           setMene(Math.round((majiMin / celkemLidi) * 100 * 10) / 10);
           setVice(Math.round((majiVic / celkemLidi) * 100 * 10) / 10);
-          console.log(celkemLidi, majiMin, majiVic);
+          let vystupniData = vstupniData;
+          vystupniData[pocetSpravne]++;
+          const http = new XMLHttpRequest();
+          const url =
+            "https://ldwgwvuknh.execute-api.eu-central-1.amazonaws.com/items";
+          http.open("PUT", url);
+          http.send(
+            JSON.stringify({
+              vysledek: 0,
+              pocty: JSON.stringify(vystupniData),
+            })
+          );
         });
 
       setMene();
