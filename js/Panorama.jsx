@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { useEffect, useState } from "preact/compat";
 
-function Panorama({ currPlace, setCurrPlace, mapLoader, data }) {
+function Panorama({ currPlace, setCurrPlace, mapLoader, data, guessedPlaces }) {
   const [panoramaScene, setPanoramaScene] = useState(null);
 
   useEffect(() => {
@@ -10,6 +10,8 @@ function Panorama({ currPlace, setCurrPlace, mapLoader, data }) {
         new mapLoader.SMap.Pano.Scene(document.querySelector("#panorama"), {
           //nav: false, // skryjeme navigaci
           pitchRange: [0, 0], // zakazeme vertikalni rozhled
+          // TODO vypnout zoomscroll
+          // TODO kamera animace
         })
       );
     }
@@ -37,7 +39,13 @@ function Panorama({ currPlace, setCurrPlace, mapLoader, data }) {
               sense: null,
             })
           ); //console.log("nenašli");
-          setCurrPlace(data[Math.floor(Math.random() * data.length)]);
+          //aby se nemohla v jedné hře opakovat dvě stejná místa
+          let vylosovaneMisto;
+          do {
+            vylosovaneMisto = data[Math.floor(Math.random() * data.length)];
+          } while (guessedPlaces.includes(vylosovaneMisto.id));
+
+          setCurrPlace(vylosovaneMisto);
         }
       );
     }

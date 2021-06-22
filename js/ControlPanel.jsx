@@ -23,11 +23,14 @@ function ControlPanel({
   setCurrPlace,
   guessedPlaces,
   setGuessedPlaces,
+  guessedResults,
+  setGuessedResults,
   data,
 }) {
   const handleButtonClick = (event) => {
     const spravne = parseInt(event.target.value) === currPlace.str;
-    setGuessedPlaces([...guessedPlaces, [currPlace.id, spravne]]);
+    setGuessedResults([...guessedResults, spravne]);
+    setGuessedPlaces([...guessedPlaces, currPlace.id]);
   };
 
   const handleDalsiClick = (event) => {
@@ -38,14 +41,20 @@ function ControlPanel({
     http.send(
       JSON.stringify({
         id: currPlace.id,
-        correct: guessedPlaces[guessedPlaces.length - 1][1],
+        correct: guessedPlaces[guessedPlaces.length - 1],
         sense: event.target.id === "nahlasit" ? false : true,
       })
     );
     http.onreadystatechange = (e) => {
       //  console.log(http.responseText);
     };
-    setCurrPlace(data[Math.floor(Math.random() * data.length)]);
+    //aby se nemohla v jedné hře opakovat dvě stejná místa
+    let vylosovaneMisto;
+    do {
+      vylosovaneMisto = data[Math.floor(Math.random() * data.length)];
+    } while (guessedPlaces.includes(vylosovaneMisto.id));
+
+    setCurrPlace(vylosovaneMisto);
   };
 
   const vylosujStranu = (pocetStran) => {
@@ -65,7 +74,7 @@ function ControlPanel({
     <div id="control-panel">
       {/* pokud je to první pokus, nebo pokud ještě neproběhl tip, ukaž možnosti */}
       {(guessedPlaces.length === 0 ||
-        guessedPlaces[guessedPlaces.length - 1][0] != currPlace.id) &&
+        guessedPlaces[guessedPlaces.length - 1] != currPlace.id) &&
         "Kdo zde vyhrál?" &&
         vybraneStrany
           .sort(() => Math.random() - 0.5)
@@ -78,10 +87,10 @@ function ControlPanel({
           })}
       {/* jinak ukaž výsledek tipu a tlačítko Další */}
       {guessedPlaces.length > 0 &&
-        guessedPlaces[guessedPlaces.length - 1][0] === currPlace.id && (
+        guessedPlaces[guessedPlaces.length - 1] === currPlace.id && (
           <div>
             <strong>
-              {guessedPlaces[guessedPlaces.length - 1][1]
+              {guessedResults[guessedPlaces.length - 1]
                 ? "Správně!"
                 : "Špatně!"}
             </strong>

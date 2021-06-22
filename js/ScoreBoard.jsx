@@ -1,15 +1,16 @@
 import { h } from "preact";
 
-function ScoreBoard({ guessedPlaces }) {
-  const pocetSpravne = guessedPlaces.reduce((acc, curr) => {
-    return curr[1] ? acc + 1 : acc;
+function ScoreBoard({ guessedPlaces, guessedResults }) {
+  const pocetSpravne = guessedResults.reduce((acc, curr) => {
+    return curr ? acc + 1 : acc;
   }, 0);
   return (
     guessedPlaces.length > 0 && (
       <div id="score-board">
-        Úspěšnost{" "}
+        úspěšnost{" "}
         {Math.round((pocetSpravne / guessedPlaces.length) * 100 * 10) / 10} % |{" "}
-        {pocetSpravne} z {guessedPlaces.length} správně
+        {pocetSpravne} z {guessedPlaces.length} správně | zbývá{" "}
+        {10 - guessedPlaces.length}
       </div>
     )
   );

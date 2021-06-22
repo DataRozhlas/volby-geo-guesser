@@ -13,23 +13,30 @@ function App() {
     data[Math.floor(Math.random() * data.length)]
   );
   const [guessedPlaces, setGuessedPlaces] = useState([]);
+  const [guessedResults, setGuessedResults] = useState([]);
   const [loaded, error] = useScript("https://api.mapy.cz/loader.js");
   const [mapLoader] = useMapLoader(loaded);
   return (
     <>
-      <ScoreBoard guessedPlaces={guessedPlaces} />
+      <ScoreBoard
+        guessedPlaces={guessedPlaces}
+        guessedResults={guessedResults}
+      />
 
       <Panorama
         currPlace={currPlace}
         setCurrPlace={setCurrPlace}
         mapLoader={mapLoader}
         data={data}
+        guessedPlaces={guessedPlaces}
       />
       <ControlPanel
         currPlace={currPlace}
         setCurrPlace={setCurrPlace}
         guessedPlaces={guessedPlaces}
         setGuessedPlaces={setGuessedPlaces}
+        guessedResults={guessedResults}
+        setGuessedResults={setGuessedResults}
         data={data}
       />
     </>

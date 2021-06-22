@@ -12,6 +12,7 @@
 }
 
 #score-board {
+  font-size: small;
   position: absolute;
   top: 0;
   right: 15px;
