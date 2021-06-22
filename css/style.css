@@ -11,6 +11,11 @@
   flex-wrap: wrap;
 }
 
+#control-panel > button {
+  font-size: 1.2rem;
+  margin: 0 0.5rem;
+}
+
 #score-board {
   font-size: small;
   position: absolute;
