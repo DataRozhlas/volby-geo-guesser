@@ -42,7 +42,7 @@ function ControlPanel({
       JSON.stringify({
         id: currPlace.id,
         correct: guessedPlaces[guessedPlaces.length - 1],
-        sense: event.target.id === "nahlasit" ? false : true,
+        sense: true,
       })
     );
     http.onreadystatechange = (e) => {
@@ -103,10 +103,7 @@ function ControlPanel({
             </span>
             <div style="display:flex; justify-content:center; margin-top:0.4rem">
               <button onClick={handleDalsiClick}>Další 👍</button>
-              <button id="nahlasit" onClick={handleDalsiClick}>
-                Nahlásit 👎 (+ další)
-              </button>
-            </div>{" "}
+            </div>
           </div>
         )}
     </div>
