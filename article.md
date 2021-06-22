@@ -8,7 +8,7 @@ options: [noheader, nopic] #wide, noheader (, nopic)
 
 ---
 
-**Kdo zde vyhrál?** Pomocí tlačítka pod obrázkem vyberte stranu, která podle vás na tomto místě získala v roce 2017 nejvíc hlasů. Rozhlížet a pohybovat se můžete pomocí myši nebo šipek, na dotykových zařízeních tažením prstu.
+**Kdo zde vyhrál?** Tlačítkem pod obrázkem vyberte stranu, která podle vás na tomto místě získala v roce 2017 nejvíc hlasů. Rozhlížet a pohybovat se můžete pomocí myši nebo šipek, na dotykových zařízeních tažením prstu.
 <wide>
 
 <div id="app"></div>
