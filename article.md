@@ -8,12 +8,13 @@ options: [noheader, nopic] #wide, noheader (, nopic)
 
 ---
 
+**Kdo zde vyhrál?** Pomocí tlačítka pod obrázkem vyberta stranu, která podle vás na tomto místě získala v roce 2017 nejvíc hlasů. Rozhlížet a pohybovat se můžete pomocí myši nebo šipek, na dotykových zařízeních tažením prstu.
 <wide>
-<div id="app"></div>
-</wide>
-<br>
 
-Zdroje dat: [ČSÚ - Otevřená data pro volební výsledky](https://volby.cz/opendata/opendata.htm), [ČÚZK](https://vdp.cuzk.cz/) a [Mapy.cz](https://api.mapy.cz/)
+<div id="app"></div>
+
+<p style="font-size:smaller;text-align:right;">Zdroje dat: <a href="https://volby.cz/opendata/opendata.htm">ČSÚ - Otevřená data pro volební výsledky</a>, <a href="https://vdp.cuzk.cz/">ČÚZK</a> a <a href="https://api.mapy.cz/">Mapy.cz</a></p>
+</wide>
 
 Místa na fotografiích jsou náhodně vybírána ze 450 volebních okrsků, kde ve volbách v roce 2017 získalo devět stran postupujících do sněmovny nejvyšší podíl hlasů. Pro každou stranu je tak ve výběru 50 míst, v nichž zvítězila – nejmenší strany totiž více vítězných orksků nemají.
 

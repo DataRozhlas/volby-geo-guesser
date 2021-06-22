@@ -75,7 +75,6 @@ function ControlPanel({
       {/* pokud je to první pokus, nebo pokud ještě neproběhl tip, ukaž možnosti */}
       {(guessedPlaces.length === 0 ||
         guessedPlaces[guessedPlaces.length - 1] != currPlace.id) &&
-        "Kdo zde vyhrál?" &&
         vybraneStrany
           .sort(() => Math.random() - 0.5)
           .map((s) => {
@@ -101,8 +100,8 @@ function ControlPanel({
               {strany.filter((s) => s.id === currPlace.str)[0].str}
               .&nbsp;Získala zde {currPlace.hl} hlasů z {currPlace.hlclk}.
             </span>
-            <div style="display:flex; justify-content:center; margin-top:0.4rem">
-              <button onClick={handleDalsiClick}>Další 👍</button>
+            <div style="display:flex; justify-content:center; margin-top:0.4rem; font-size:1.2">
+              <button onClick={handleDalsiClick}>Další</button>
             </div>
           </div>
         )}
