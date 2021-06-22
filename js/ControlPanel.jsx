@@ -1,4 +1,6 @@
 import { h, Fragment } from "preact";
+import { useEffect, useState } from "preact/compat";
+
 import okresy from "./okresy.json";
 
 const strany = [
@@ -31,13 +33,15 @@ function ControlPanel({
   setGuessedResults,
   data,
 }) {
+  const [vyhodnoceni, setVyhodnoceni] = useState(false);
+  const [mene, setMene] = useState(0);
+  const [vice, setVice] = useState(0);
+
   const handleButtonClick = (event) => {
     const spravne = parseInt(event.target.value) === currPlace.str;
     setGuessedResults([...guessedResults, spravne]);
     setGuessedPlaces([...guessedPlaces, currPlace.id]);
-  };
-
-  const handleDalsiClick = (event) => {
+    //ulož tip do databáze
     const http = new XMLHttpRequest();
     const url =
       "https://m5u79pkxma.execute-api.eu-central-1.amazonaws.com/deploy/okrsek";
@@ -45,20 +49,49 @@ function ControlPanel({
     http.send(
       JSON.stringify({
         id: currPlace.id,
-        correct: guessedPlaces[guessedPlaces.length - 1],
-        sense: true,
+        correct: spravne,
       })
     );
-    http.onreadystatechange = (e) => {
-      //  console.log(http.responseText);
-    };
-    //aby se nemohla v jedné hře opakovat dvě stejná místa
-    let vylosovaneMisto;
-    do {
-      vylosovaneMisto = data[Math.floor(Math.random() * data.length)];
-    } while (guessedPlaces.includes(vylosovaneMisto.id));
+    // http.onreadystatechange = (e) => {
+    //   console.log(http.responseText);
+    // };
+  };
 
-    setCurrPlace(vylosovaneMisto);
+  const handleDalsiClick = (event) => {
+    if (guessedPlaces.length === 10) {
+      setVyhodnoceni(true);
+      const pocetSpravne = guessedResults.reduce((acc, curr) => {
+        return curr ? acc + 1 : acc;
+      }, 0);
+      fetch("https://ldwgwvuknh.execute-api.eu-central-1.amazonaws.com/items")
+        .then((response) => response.json())
+        .then((data) => {
+          const vstupniData = JSON.parse(data.Item.pocty);
+          const celkemLidi = vstupniData.reduce((acc, curr) => curr + acc, 0);
+          const majiMin = vstupniData.reduce(
+            (acc, curr, i) => (i < pocetSpravne ? curr + acc : acc),
+            0
+          );
+          const majiVic = vstupniData.reduce(
+            (acc, curr, i) => (i > pocetSpravne ? curr + acc : acc),
+            0
+          );
+          setMene(Math.round((majiMin / celkemLidi) * 100 * 10) / 10);
+          setVice(Math.round((majiVic / celkemLidi) * 100 * 10) / 10);
+          console.log(celkemLidi, majiMin, majiVic);
+        });
+
+      setMene();
+      setVice();
+    } else {
+      //aby se nemohla v jedné hře opakovat dvě stejná místa
+      let vylosovaneMisto;
+      do {
+        vylosovaneMisto = data[Math.floor(Math.random() * data.length)];
+      } while (guessedPlaces.includes(vylosovaneMisto.id));
+
+      setCurrPlace(vylosovaneMisto);
+    }
   };
 
   const vylosujStranu = (pocetStran) => {
@@ -79,6 +112,7 @@ function ControlPanel({
       {/* pokud je to první pokus, nebo pokud ještě neproběhl tip, ukaž možnosti */}
       {(guessedPlaces.length === 0 ||
         guessedPlaces[guessedPlaces.length - 1] != currPlace.id) &&
+        !vyhodnoceni &&
         vybraneStrany
           .sort(() => Math.random() - 0.5)
           .map((s) => {
@@ -89,8 +123,8 @@ function ControlPanel({
             );
           })}
       {/* jinak ukaž výsledek tipu a tlačítko Další */}
-      {guessedPlaces.length > 0 &&
-        guessedPlaces.length < 10 &&
+      {!vyhodnoceni &&
+        guessedPlaces.length > 0 &&
         guessedPlaces[guessedPlaces.length - 1] === currPlace.id && (
           <div>
             <strong>
@@ -105,19 +139,19 @@ function ControlPanel({
               {strany.filter((s) => s.id === currPlace.str)[0].str}
               .&nbsp;Získala zde {currPlace.hl} hlasů z {currPlace.hlclk}.
             </span>
-            <div style="display:flex; justify-content:center; margin-top:0.4rem; font-size:1.2">
-              <button onClick={handleDalsiClick}>Další</button>
+            <div style="display:flex; justify-content:center; margin-top:0.4rem; font-size:1.2rem">
+              <button onClick={handleDalsiClick}>
+                {guessedPlaces.length === 10 ? "Vyhodnotit" : "Další"}
+              </button>
             </div>
           </div>
         )}
-      {/* Když je hra u konce, ukaž vyhodnocení */}
-      {guessedPlaces === 10 && (
+      {vyhodnoceni && (
         <>
           <div>
-            Váš výsledek je lepší než {srovnejVysledek(guessedResults, true)} %
-            lidí, kteří hru dokončili před vámi a horší než jakého dosáhlo{" "}
-            {srovnejVysledek(guessedResults, false)} % z nich. Zbývající hráči
-            dopadli stejně jako vy. Gratulujeme!
+            Máte výsledek lepší než {mene} % lidí, kteří hru dokončili před vámi
+            a horší než jakého dosáhlo {vice} % hráčů. Ostatní dopadli stejně
+            jako vy. <strong>Gratulujeme!</strong>
           </div>
         </>
       )}
