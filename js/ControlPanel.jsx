@@ -1,5 +1,5 @@
 import { h, Fragment } from "preact";
-import { useEffect, useState } from "preact/compat";
+import { useState } from "preact/compat";
 
 import okresy from "./okresy.json";
 
@@ -178,7 +178,7 @@ function ControlPanel({
                   } % hráčů před vámi.`
                 : null}
             </span>
-            <div style="display:flex; justify-content:center; margin-top:0.4rem; font-size:1.2rem">
+            <div style="display:flex; justify-content:center; margin-top:0.4rem;">
               <button onClick={handleDalsiClick}>
                 {guessedPlaces.length === 10 ? "Vyhodnotit" : "Další"}
               </button>
@@ -192,7 +192,7 @@ function ControlPanel({
             a horší než jakého dosáhlo {vice} % hráčů. Ostatní dopadli stejně
             jako vy. <strong>Gratulujeme!</strong>
           </div>
-          <div style="display:flex; justify-content:center; margin-top:0.4rem; font-size:1.2rem">
+          <div style="display:flex; justify-content:center; margin-top:0.4rem;">
             <button onClick={handleDalsiClick}>Hrát znovu</button>
           </div>
         </div>
