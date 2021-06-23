@@ -16,7 +16,7 @@ function Panorama({
     if (mapLoader.loadedMapApi) {
       setPanoramaScene(
         new mapLoader.SMap.Pano.Scene(document.querySelector("#panorama"), {
-          nav: false, // skryjeme navigaci
+          // nav: false, // skryjeme navigaci
           pitchRange: [0, 0], // zakazeme vertikalni rozhled
           // TODO vypnout zoomscroll
           // TODO kamera animace
