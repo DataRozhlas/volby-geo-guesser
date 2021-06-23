@@ -1,12 +1,24 @@
-﻿import "preact/debug";
+﻿//import "preact/debug";
 import { h, render, Component, Fragment } from "preact";
-import { useState } from "preact/compat";
+import { useEffect, useState } from "preact/compat";
 import Panorama from "./Panorama.jsx";
 import ControlPanel from "./ControlPanel.jsx";
 import ScoreBoard from "./ScoreBoard.jsx";
 import data from "./../data/data.json";
 import useScript from "./useScript";
 import useMapLoader from "./useMapLoader";
+
+const getStats = async () => {
+  try {
+    const response = await fetch(
+      "https://datarozhlas.s3.eu-central-1.amazonaws.com/volby-geo-data/mista-stats.json"
+    );
+    const mista = await response.json();
+    return mista;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 function App() {
   const [currPlace, setCurrPlace] = useState(
@@ -40,8 +52,21 @@ function App() {
   //   true,
   //   false,
   // ]);
+  const [historieMista, setHistorieMista] = useState([]);
   const [loaded, error] = useScript("https://api.mapy.cz/loader.js");
   const [mapLoader] = useMapLoader(loaded);
+  const [mistaStats, setMistaStats] = useState();
+
+  useEffect(async () => {
+    const result = await getStats();
+    setMistaStats(result);
+    setHistorieMista(
+      result.filter((m) => {
+        return m.id === currPlace.id;
+      })
+    );
+  }, []);
+
   return (
     <>
       <ScoreBoard
@@ -55,6 +80,8 @@ function App() {
         mapLoader={mapLoader}
         data={data}
         guessedPlaces={guessedPlaces}
+        setHistorieMista={setHistorieMista}
+        mistaStats={mistaStats}
       />
       <ControlPanel
         currPlace={currPlace}
@@ -64,6 +91,9 @@ function App() {
         guessedResults={guessedResults}
         setGuessedResults={setGuessedResults}
         data={data}
+        historieMista={historieMista}
+        setHistorieMista={setHistorieMista}
+        mistaStats={mistaStats}
       />
     </>
   );

@@ -1,5 +1,5 @@
 title: "Zeměpisný kvíz: Uhodnete z fotky ulice, kdo tam vyhrál volby?"
-perex: "Mají něco společného místa, kde dominuje ANO, ODS nebo Piráti? Jak se liší habitat voličů SPD, KSČM či KDU-ČSL? Čím se vyznačují obce s převahou ČSSD, STAN nebo TOP 09? Pro každou stranu, která před čtyřmi lety postoupila do sněmovny, jsme vybrali okrsky, kde zvítězila s nejvyšším podílem hlasů. Vyzkoušejte si, zda je poznáte."
+perex: "Mají něco společného místa, kde dominuje ANO, ODS nebo Piráti? Jak se liší prostředí, kde žijí voliči SPD, KSČM či KDU-ČSL? Čím se vyznačují obce s převahou ČSSD, STAN nebo TOP 09? Pro každou stranu, která před čtyřmi lety postoupila do sněmovny, jsme vybrali okrsky, kde zvítězila s nejvyšším podílem hlasů. Vyzkoušejte si, zda je poznáte."
 coverimg: https://interaktivni.rozhlas.cz/brexit/media/cover.jpg
 coverimg_note: "Foto <a href='https://ctk.cz'>ČTK</a>"
 styles: []
@@ -24,6 +24,8 @@ Ke hře jsme se inspirovali nedávným projektem [projektem New York Times](http
 
 Při hádání jim mohl pomoci například převládající typ aut (venkovské trucky, nebo městské hybridy?), restaurací (imigrantské kuchyně, nebo barbecue?), podoba zástavby či etnicita chodců.
 
+<!--[[ZPRAVY_ARTICLE:5995242:1:1]]-->
+
 Některé oblasti ale mohou překvapit: „Velká města a venkov jsou víceméně jasná. Napínavé je to na jejich rozhraní," píší New York Times, podle nichž je zdaleka nejspolehlivějším vodítkem právě hustota osídlení. Kdo se bude při hře řídit tím, že na místech osídlených řídčeji než předměstí Filadelfie či Minneapolisu vyhrál Donald Trump, trefí se ve třech čtvrtinách případů. „Kdybyste stejnou taktiku použili před šedesáti lety, pohořeli byste. Hustota osídlení tenkrát nebyla tak jasným prediktorem preferencí."
 
 Server iROZHLAS.cz zazamenává anonymizované odpovědi z kvízu a před říjnovými volbami je podrobí další analýze.
@@ -34,9 +36,9 @@ Server iROZHLAS.cz zazamenává anonymizované odpovědi z kvízu a před říjn
 
 Také podle politologa Jakuba Lyska z Univerzity Palackého v Olomouci je hra převedená do českých reálií těžší: „Urbanizace je i u nás základním faktorem a rozdíl mezi městem a venkovem se v čase zvyšuje i v Česku. Situaci ale komplikují česká specifika. Prvním z nich je religiozita,“ sdělil serveru iROZHLAS.cz politolog, který se geografii volebních výsledků [dlouhodobě věnuje](https://www.tandfonline.com/doi/full/10.1080/17445647.2020.1819901).
 
-Obce s vysokým podílem katolíků volí jinak než zbytek republiky, a to nejen lidovce. Více hlasů než jinde v republice tu získávají i další již tradiční strany jako ODS a ČSSD. Nejde přitom jen o jih Moravy: „Katolické obce máme i v pásu okolo Ostravy, od Hlučínska přes Nový Jičín až po Jablunkov. Na Hané to jsou zase oblasti Konicka, které volebně vybočují. V Čechách pak některé východočeské okresy, Jižní Čechy a jih Středočeského kraje.“
+<!--[[ZPRAVY_ARTICLE:5999162:0:1]]-->
 
-<!--[[ZPRAVY_ARTICLE:5995242:1:1]]-->
+Obce s vysokým podílem katolíků volí jinak než zbytek republiky, a to nejen lidovce. Více hlasů než jinde v republice tu získávají i další již tradiční strany jako ODS a ČSSD. Nejde přitom jen o jih Moravy: „Katolické obce máme i v pásu okolo Ostravy, od Hlučínska přes Nový Jičín až po Jablunkov. Na Hané to jsou zase oblasti Konicka, které volebně vybočují. V Čechách pak některé východočeské okresy, Jižní Čechy a jih Středočeského kraje.“
 
 Druhým specifikem jsou podle Jakuba Lyska bývalé Sudety. Ty už mohou leckde mít opravené fasády, které ale nemusí vypovídat o tom, co se odehrává za nimi. „V některých obcích se ekonomicky nežije zase tak špatně, ale je zde nízký kulturní a sociální kapitál. A to z fotografií ulic nepoznáme.“
 

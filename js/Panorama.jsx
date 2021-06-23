@@ -1,14 +1,22 @@
 import { h } from "preact";
 import { useEffect, useState } from "preact/compat";
 
-function Panorama({ currPlace, setCurrPlace, mapLoader, data, guessedPlaces }) {
+function Panorama({
+  currPlace,
+  setCurrPlace,
+  mapLoader,
+  data,
+  guessedPlaces,
+  setHistorieMista,
+  mistaStats,
+}) {
   const [panoramaScene, setPanoramaScene] = useState(null);
 
   useEffect(() => {
     if (mapLoader.loadedMapApi) {
       setPanoramaScene(
         new mapLoader.SMap.Pano.Scene(document.querySelector("#panorama"), {
-          //nav: false, // skryjeme navigaci
+          nav: false, // skryjeme navigaci
           pitchRange: [0, 0], // zakazeme vertikalni rozhled
           // TODO vypnout zoomscroll
           // TODO kamera animace
@@ -46,6 +54,11 @@ function Panorama({ currPlace, setCurrPlace, mapLoader, data, guessedPlaces }) {
           } while (guessedPlaces.includes(vylosovaneMisto.id));
 
           setCurrPlace(vylosovaneMisto);
+          setHistorieMista(
+            mistaStats.filter((m) => {
+              return m.id === vylosovaneMisto.id;
+            })
+          );
         }
       );
     }

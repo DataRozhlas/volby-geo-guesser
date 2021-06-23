@@ -20,10 +20,6 @@ const rekniOkres = (numnuts, okresy) => {
   return okres[0].n;
 };
 
-const srovnejVysledek = async (guessedResults, lepsi) => {
-  return "X";
-};
-
 function ControlPanel({
   currPlace,
   setCurrPlace,
@@ -32,10 +28,14 @@ function ControlPanel({
   guessedResults,
   setGuessedResults,
   data,
+  historieMista,
+  setHistorieMista,
+  mistaStats,
 }) {
   const [vyhodnoceni, setVyhodnoceni] = useState(false);
   const [mene, setMene] = useState(null);
   const [vice, setVice] = useState(null);
+  const [uid, setUid] = useState(Date.now() + Math.random());
 
   const handleButtonClick = (event) => {
     const spravne = parseInt(event.target.value) === currPlace.str;
@@ -50,6 +50,7 @@ function ControlPanel({
       JSON.stringify({
         id: currPlace.id,
         correct: spravne,
+        uid: uid,
       })
     );
     // http.onreadystatechange = (e) => {
@@ -60,12 +61,22 @@ function ControlPanel({
   const handleDalsiClick = (event) => {
     // hrát znovu
     if (vyhodnoceni) {
-      setCurrPlace(data[Math.floor(Math.random() * data.length)]);
+      let vylosovaneMisto;
+      do {
+        vylosovaneMisto = data[Math.floor(Math.random() * data.length)];
+      } while (guessedPlaces.includes(vylosovaneMisto.id));
+      setCurrPlace(vylosovaneMisto);
       setGuessedPlaces([]);
       setGuessedResults([]);
       setMene(null);
       setVice(null);
       setVyhodnoceni(false);
+      setUid(Date.now() + Math.random());
+      setHistorieMista(
+        mistaStats.filter((m) => {
+          return m.id === vylosovaneMisto.id;
+        })
+      );
     } else if (guessedPlaces.length === 10) {
       // závěrečné vyhodnocení
       setVyhodnoceni(true);
@@ -108,6 +119,11 @@ function ControlPanel({
       } while (guessedPlaces.includes(vylosovaneMisto.id));
 
       setCurrPlace(vylosovaneMisto);
+      setHistorieMista(
+        mistaStats.filter((m) => {
+          return m.id === vylosovaneMisto.id;
+        })
+      );
     }
   };
 
@@ -123,7 +139,6 @@ function ControlPanel({
       vybraneStrany.push(vylosovana);
     }
   }
-
   return (
     <div id="control-panel">
       {/* pokud je to první pokus, nebo pokud ještě neproběhl tip, ukaž možnosti */}
@@ -154,7 +169,14 @@ function ControlPanel({
               {rekniOkres(currPlace.okres, okresy)}) zvítězila ve volebním
               okrsku číslo {currPlace.okr} strana{" "}
               {strany.filter((s) => s.id === currPlace.str)[0].str}
-              .&nbsp;Získala zde {currPlace.hl} hlasů z {currPlace.hlclk}.
+              .&nbsp;Získala zde {currPlace.hl} hlasů z {currPlace.hlclk}.{" "}
+              {historieMista.length > 0
+                ? `Na tomto místě tipovalo správně ${
+                    Math.round(
+                      (historieMista[0].cor / historieMista[0].tot) * 100 * 10
+                    ) / 10
+                  } % hráčů před vámi.`
+                : null}
             </span>
             <div style="display:flex; justify-content:center; margin-top:0.4rem; font-size:1.2rem">
               <button onClick={handleDalsiClick}>
