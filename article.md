@@ -28,7 +28,7 @@ Při hádání jim mohl pomoci například převládající typ aut (venkovské 
 
 Některé oblasti ale mohou překvapit: „Velká města a venkov jsou víceméně jasná. Napínavé je to na jejich rozhraní," píší New York Times, podle nichž je zdaleka nejspolehlivějším vodítkem právě hustota osídlení. Kdo se bude při hře řídit tím, že na místech osídlených řídčeji než předměstí Filadelfie či Minneapolisu vyhrál Donald Trump, trefí se ve třech čtvrtinách případů. „Kdybyste stejnou taktiku použili před šedesáti lety, pohořeli byste. Hustota osídlení tenkrát nebyla tak jasným prediktorem preferencí."
 
-Server iROZHLAS.cz zazamenává anonymizované odpovědi z kvízu a před říjnovými volbami je podrobí další analýze.
+Server iROZHLAS.cz zaznamenává anonymizované odpovědi z kvízu a před říjnovými volbami je podrobí další analýze.
 
 ## Češi těžší to maj
 
@@ -38,7 +38,7 @@ Také podle politologa Jakuba Lyska z Univerzity Palackého v Olomouci je hra p�
 
 <!--[[ZPRAVY_ARTICLE:5999162:0:1]]-->
 
-Obce s vysokým podílem katolíků volí jinak než zbytek republiky, a to nejen lidovce. Více hlasů než jinde v republice tu získávají i další již tradiční strany jako ODS a ČSSD. Nejde přitom jen o jih Moravy: „Katolické obce máme i v pásu okolo Ostravy, od Hlučínska přes Nový Jičín až po Jablunkov. Na Hané to jsou zase oblasti Konicka, které volebně vybočují. V Čechách pak některé východočeské okresy, Jižní Čechy a jih Středočeského kraje.“
+Obce s vysokým podílem katolíků volí jinak než zbytek republiky, a to nejen lidovce. Více hlasů než jinde v republice tu získávají i další již tradiční strany jako ODS a ČSSD. Nejde přitom jen o jih Moravy: „Katolické obce máme i v pásu okolo Ostravy, od Hlučínska přes Nový Jičín až po Jablunkov. Na Hané to jsou zase oblasti Konicka, které volebně vybočují. V Čechách pak některé východočeské okresy, jižní Čechy a jih Středočeského kraje.“
 
 Druhým specifikem jsou podle Jakuba Lyska bývalé Sudety. Ty už mohou leckde mít opravené fasády, které ale nemusí vypovídat o tom, co se odehrává za nimi. „V některých obcích se ekonomicky nežije zase tak špatně, ale je zde nízký kulturní a sociální kapitál. A to z fotografií ulic nepoznáme.“
 
