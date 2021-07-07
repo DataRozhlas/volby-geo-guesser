@@ -51,6 +51,7 @@ function ControlPanel({
         id: currPlace.id,
         correct: spravne,
         uid: uid,
+        tip: parseInt(event.target.value),
       })
     );
     // http.onreadystatechange = (e) => {

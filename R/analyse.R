@@ -6,7 +6,7 @@ library(jsonlite)
 
 getData <- function(url) {
   download.file(url, "./../data/data.zip")
-  unzip("./../data/data.zip", exdir="./../data")
+  unzip("./../data/data.zip", exdir = "./../data")
   file.remove("./../data/data.zip")
 }
 
@@ -22,63 +22,66 @@ obce <- read_csv2("./../data/pscoco.csv", locale = locale(encoding = "cp1250"))
 okresy <- read_csv2("./../data/cnumnuts.csv", locale = locale(encoding = "cp1250"))
 
 okresy %>%
-  select(id=NUMNUTS, n=NAZEVNUTS) %>%
+  select(id = NUMNUTS, n = NAZEVNUTS) %>%
   toJSON()
 
 
 vysledky <- vysledky %>%
-  left_join(okrsky, by=c("ID_OKRSKY")) %>%
-  select(ODEVZ_OBAL, ID_OKRSKY, OKRES.x, OBEC.x, OKRSEK.x, KSTRANA, POC_HLASU, PL_HL_CELK )
+  left_join(okrsky, by = c("ID_OKRSKY")) %>%
+  select(ODEVZ_OBAL, ID_OKRSKY, OKRES.x, OBEC.x, OKRSEK.x, KSTRANA, POC_HLASU, PL_HL_CELK)
 
 strany <- read_csv2("./../data/psrkl.csv", locale = locale(encoding = "cp1250"))
-strany_vybrane <- strany[strany$KSTRANA %in% c(21,1,15,29,7,8,4,24,20,7), ]
+strany_vybrane <- strany[strany$KSTRANA %in% c(21, 1, 15, 29, 7, 8, 4, 24, 20, 7), ]
 
 # je vítěz?
 
-vysledky <- vysledky %>% group_by(ID_OKRSKY) %>%
-  mutate(vitez=max(POC_HLASU)) %>%
-  mutate(JE_VITEZ=vitez==POC_HLASU)
+vysledky <- vysledky %>%
+  group_by(ID_OKRSKY) %>%
+  mutate(vitez = max(POC_HLASU)) %>%
+  mutate(JE_VITEZ = vitez == POC_HLASU)
 
 
 # jen okrsky, kde zvítězila některá z parlamentních stran
 
 vysledky <- vysledky %>%
   filter(KSTRANA %in% strany_vybrane$KSTRANA) %>%
-  filter(JE_VITEZ==T) %>%
-  filter(OBEC.x!=999997) %>%
-  mutate(HL_PCT=POC_HLASU/PL_HL_CELK) %>%
+  filter(JE_VITEZ == T) %>%
+  filter(OBEC.x != 999997) %>%
+  mutate(HL_PCT = POC_HLASU / PL_HL_CELK) %>%
   arrange(desc(HL_PCT))
 
 # pro každou stranu top 100 okrsků
 
 export <- vysledky %>%
   group_by(KSTRANA) %>%
-  slice_max(HL_PCT, n=50)
+  slice_max(HL_PCT, n = 50)
 
 
 # přidej název obce
 
 export <- export %>%
-  left_join(obce, by=c("OBEC.x" = "OBEC"))
+  left_join(obce, by = c("OBEC.x" = "OBEC"))
 
 # načti souřadnice
 
 souradnice <- read_csv("./../data/souradnice.csv")
 
-#přidej souřadnice
+# přidej souřadnice
 
 export <- export %>%
-  left_join(souradnice, by=c("OBEC_PREZ"= "ObecKod", "OKRSEK.x" = "Cislo"))
+  left_join(souradnice, by = c("OBEC_PREZ" = "ObecKod", "OKRSEK.x" = "Cislo"))
 
 # vyber sloupce a udělej json
 
 export %>%
   ungroup() %>%
-  mutate(id=row_number()) %>%
-  select(id, str=KSTRANA, hl=POC_HLASU, hlclk=PL_HL_CELK, obc=NAZEVOBCE, X, Y, okr=OKRSEK.x, okres=OKRES.x) %>%
+  mutate(id = row_number()) %>%
+  select(id, str = KSTRANA, hl = POC_HLASU, hlclk = PL_HL_CELK, obc = NAZEVOBCE, X, Y, okr = OKRSEK.x, okres = OKRES.x) %>%
   toJSON() %>%
   write_file("./../data/data.json")
 
 # exportuj seznam stran
 
-strany_vybrane %>% select(id=KSTRANA, str=ZKRATKAK8) %>% toJSON()
+strany_vybrane %>%
+  select(id = KSTRANA, str = ZKRATKAK8) %>%
+  toJSON()
